@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Secret Ingredient</title>
+    
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Heroicons CDN for cooking icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #ffe4ec;
+        }
+        h1.title {
+            font-family: 'Dancing Script', cursive;
+        }
+        @keyframes sliceIn {
+            0% {
+                transform: scaleX(0);
+                transform-origin: left;
+                opacity: 0;
+            }
+            100% {
+                transform: scaleX(1);
+                transform-origin: left;
+                opacity: 1;
+            }
+        }
+        .slice-animation {
+            animation: sliceIn 1s ease-out forwards;
+        }
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-900">
+
+    <!-- Header -->
+    <header class="p-6 flex justify-between items-center bg-gradient-to-r from-pink-500 via-red-400 to-yellow-400 shadow-lg">
+        <div class="flex items-center space-x-2 text-2xl font-bold text-white tracking-wider">
+            <span>🍴</span>
+            <span>SecretIngredient</span>
+            <span>👩‍🍳</span>
+        </div>
+        <nav class="space-x-6">
+            <a href="#" class="hover:text-yellow-200 text-white flex items-center space-x-1">
+                <span>🏠</span><span>Home</span>
+            </a>
+            <a href="#recipes" class="hover:text-yellow-200 text-white flex items-center space-x-1">
+                <span>🍲</span><span>Recipes</span>
+            </a>
+            <a href="#about" class="hover:text-yellow-200 text-white flex items-center space-x-1">
+                <span>🥄</span><span>About</span>
+            </a>
+        </nav>
+    </header>
+
+    
+
+    <!-- Hero Section -->
+    <section class="relative h-screen bg-black flex items-center justify-center">
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div class="text-center z-10 px-4">
+            <div class="flex justify-center mb-4">
+                <!-- Cooking themed icons -->
+                <span class="text-5xl mx-2">🍳</span>
+                <span class="text-5xl mx-2">🥗</span>
+                <span class="text-5xl mx-2">🍰</span>
+            </div>
+            <h1 class="title text-white text-5xl md:text-7xl font-bold mb-6 slice-animation drop-shadow-lg flex items-center justify-center space-x-3">
+                <span>🧑‍🍳</span>
+                <span>The Secret Ingredient</span>
+                <span>🥘</span>
+            </h1>
+            <p class="text-yellow-100 text-lg md:text-2xl italic max-w-xl mx-auto fade-in delay-200 drop-shadow flex items-center justify-center space-x-2">
+                <span>“Cooking is like love. It should be entered into with abandon or not at all.”</span>
+                <span>🍋</span>
+                <br><span class="text-sm block">– Harriet van Horne</span>
+            </p>
+            <a href="#recipes" class="mt-10 inline-block bg-gradient-to-r from-pink-500 to-yellow-400 hover:from-yellow-400 hover:to-pink-500 text-white px-6 py-3 rounded-full text-lg font-semibold fade-in delay-500 shadow-lg flex items-center space-x-2">
+                <span>🍽️</span>
+                <span>Discover Recipes</span>
+            </a>
+        </div>
+    </section>
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
