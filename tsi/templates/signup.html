@@ -1,11 +1,151 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Signup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;700&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap">
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-image: url("{% static 'loginbg.jpeg' %}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            margin: 0;
+            /* Remove background color */
+        }
+
+        .background {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .Signup-container {
+            /* background: rgba(255, 255, 255, 0.137); more transparent */
+            backdrop-filter: blur(60px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.13);
+            padding: 2.5rem;
+            border-radius: 16px;
+            min-width: 340px;
+            max-width: 380px;
+            width: 100%;
+        }
+
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            color: #ffe9d6;
+            text-shadow: 2px 2px 10px #462306;
+            text-align: center;
+            font-size: 80px;
+            margin-bottom: 1rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #e7a833;
+            font-family: 'Open Sans', Arial, sans-serif, popins;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 0.6rem 0.75rem;
+            margin-bottom: 1.2rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            background: #f8fafc;
+            transition: border 0.2s;
+            font-family: 'Open Sans', Arial, sans-serif;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #f53844;
+            outline: none;
+            background: #fff;
+        }
+
+        .classic-gradient {
+            background: linear-gradient(90deg, #8b2c1f 0%, #d9a441 100%);
+        }
+
+        .classic-gradient:hover {
+            background: linear-gradient(90deg, #d9a441 0%, #8b2c1f 100%);
+        }
+    </style>
 </head>
+
 <body>
-    <h1>signup Page</h1>
+    <div class="background">
+        <div class="Signup-container">
+
+            {% if messages %}
+            <ul class="mb-4">
+                {% for message in messages %}
+                <li
+                    class="text-sm text-center px-4 py-2 rounded-md {% if message.tags == 'error' %}bg-red-100 text-red-700{% else %}bg-green-100 text-green-700{% endif %}">
+                    {{ message }}
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            <!-- Logo -->
+            <div class="flex justify-center mb-4">
+                <img src="{% static 'logo.png' %}" alt="Logo" class="w-24 h-24 object-contain">
+            </div>
+
+            <!-- Heading -->
+            <h1
+                class="text-[80px] sm:text-[96px] text-center text-[#ffe9d6] font-[Great Vibes] drop-shadow-[2px_2px_10px_#462306]">
+                Signup</h1>
+
+
+            <form method="post" action="{% url 'signup' %}">
+                {% csrf_token %}
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+
+                <button
+                    class="inline-block classic-gradient w-full text-white px-8 py-3 rounded-full text-lg font-semibold fade-in delay-500 shadow-lg transition-all duration-300 hover:scale-105">Signup</button>
+            </form>
+            <p class="mt-6 text-center" style="color: #e7a833;">
+                You have already account?
+                <a href="{% url 'login' %}" class="text-[#e7a833] font-semibold hover:underline">Login</a>
+            </p>
+        </div>
+    </div>
+    <script>
+        setTimeout(function() {
+            const msgList = document.querySelector('.mb-4');
+            if (msgList) {
+                msgList.style.display = 'none';
+            }
+        }, 2000);
+    </script>
 </body>
+
 </html>
