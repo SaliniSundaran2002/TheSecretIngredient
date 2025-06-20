@@ -22,3 +22,6 @@ def addrecipe(request):
 
 def feedback(request):
     return render(request, 'feedback.html')
+
+def recipes(request):
+    return render(request, 'recipes.html')

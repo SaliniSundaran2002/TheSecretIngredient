@@ -9,4 +9,5 @@ urlpatterns = [
     path('signup/',views.signup),
     path('addrecipe/',views.addrecipe),
     path('feedback/',views.feedback),
+    path('recipes/', views.recipes, name='recipes')
 ]
